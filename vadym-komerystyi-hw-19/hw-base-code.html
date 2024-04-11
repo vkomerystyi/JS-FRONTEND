@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Домашка DOM-2</title>
+  </head>
+  <body>
+    <div id="container">
+      <h1 class="title">Заголовок</h1>
+      <p class="text">Перший абзац</p>
+      <p class="text">Другий абзац</p>
+      <div class="box">
+        <span id="item">Елемент SPAN</span>
+      </div>
+      <ul id="list">
+        <li class="list-item">Пункт 1</li>
+        <li class="list-item">Пункт 2</li>
+      </ul>
+      <img src="example.jpg" alt="Example" id="image" class="media" />
+      <a href="#" id="link">Посилання</a>
+    </div>
+
+    <script>
+      // 1. Знайдіть елемент з ідентифікатором "container" і виведіть його в консоль.
+      const container = document.getElementById('container')
+      console.log('1', container)
+
+      // 2. Знайдіть перший елемент з класом "text" та виведіть його в консоль.
+      const text = document.querySelector('.text')
+      console.log('2', text)
+
+      // 3. Знайдіть всі елементи з класом "list-item" та виведіть їх в консоль.
+      const listItem = document.querySelectorAll('.list-item')
+      console.log('3', listItem)
+
+      // 4. Знайдіть елемент з ідентифікатором "item" та виведіть його в консоль.
+      const item = document.getElementById('item')
+      console.log('4', item)
+
+      // 5. Знайдіть всі елементи <p> на сторінці та виведіть їх в консоль.
+      const pElement = document.querySelectorAll('p')
+      console.log('5', pElement)
+
+      // 6. Виведіть в консоль вміст тегу <body>.
+      const body = document.querySelector('body')
+      console.log('6', body)
+
+      // 7. Виведіть в консоль посилання з ідентифікатором "link".
+      const link = document.querySelector('a#link')
+      console.log('7', link)
+    </script>
+  </body>
+</html>
