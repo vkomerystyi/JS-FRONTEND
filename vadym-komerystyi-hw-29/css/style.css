@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap');
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  font-style: normal;
+  background-color: rgba(197, 228, 231, 1);
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper {
+  border: 0px solid #979797;
+  border-radius: 25px;
+  width: 920px;
+  height: 481px;
+  box-shadow: 0 32px 43px 0 rgba(79, 166, 175, 0.2);
+  background: #fff;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px;
+}
+/* bill */
+.bill {
+  width: 379px;
+  height: 388px;
+  margin: 16px;
+}
+
+.amount {
+  margin-bottom: 40px;
+}
+.label {
+  font-weight: 700;
+  font-size: 16px;
+  color: #5e7a7d;
+  margin-bottom: 6px;
+}
+.label.select {
+  margin-bottom: 16px;
+}
+.field {
+  border-radius: 5px;
+  width: 379px;
+  height: 48px;
+  background: #f3f9fa;
+}
+.percentages {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 40px;
+}
+input[type='radio'] {
+  display: none;
+}
+input[type='radio'] + label {
+  border-radius: 5px;
+  width: 115px;
+  padding: 6px 13px;
+  background: #00474b;
+  font-size: 24px;
+  text-align: center;
+  color: #fff;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+input[type='radio']:checked + label {
+  background: #26c2ae;
+  color: #00474b;
+}
+
+input[type='text'] {
+  width: 100%;
+  background: none;
+  border: none;
+  outline: none;
+
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  font-size: 24px;
+  text-align: right;
+  color: #00474b;
+  padding: 6px 16px;
+}
+.amount input[type='text'] {
+  background: url('../img/dollar-icon.png') 20px center no-repeat;
+  padding-left: 40px;
+}
+.number-of-people input[type='text'] {
+  background: url('../img/man-icon.png') 20px center no-repeat;
+  padding-left: 40px;
+}
+
+/* tip */
+.tip {
+  border-radius: 15px;
+  width: 413px;
+  height: 417px;
+  background: #00474b;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+}
+.tip__amount,
+.tip__total {
+  width: 333px;
+  height: 71px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.tip__person {
+  width: 98px;
+  height: 44px;
+  display: flex;
+  flex-direction: column;
+}
+.tip__person h2 {
+  font-size: 16px;
+  color: #fff;
+}
+.tip__person h3 {
+  font-size: 13px;
+  color: #7f9d9f;
+}
+.tip__count {
+  font-size: 48px;
+  letter-spacing: -0.02em;
+  color: #26c2ae;
+}
+.tip__box {
+  flex-grow: 1;
+}
+button {
+  width: 333px;
+  height: 48px;
+  border-radius: 5px;
+  font-family: 'Space Mono', monospace;
+  font-size: 20px;
+  background: #26c2ae;
+  color: #00474b;
+  border: none;
+  cursor: pointer;
+}

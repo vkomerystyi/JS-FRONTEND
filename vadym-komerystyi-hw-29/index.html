@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>hw 29</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="bill">
+        <div class="amount">
+          <div class="label">Bill</div>
+          <div class="field">
+            <input type="text" name="bill-amount" value="142.55" />
+          </div>
+        </div>
+        <div class="label select">Select Tip %</div>
+        <div class="percentages">
+          <div>
+            <input type="radio" name="tip" checked value="5%" id="five-percent" />
+            <label for="five-percent">5%</label>
+          </div>
+          <div>
+            <input type="radio" name="tip" value="5%" id="ten-percent" />
+            <label for="ten-percent">10%</label>
+          </div>
+          <div>
+            <input type="radio" name="tip" value="5%" id="fifteen-percent" />
+            <label for="fifteen-percent">15%</label>
+          </div>
+          <div>
+            <input type="radio" name="tip" value="5%" id="twenty-five-percent" />
+            <label for="twenty-five-percent">25%</label>
+          </div>
+          <div>
+            <input type="radio" name="tip" value="5%" id="fifty-percent" />
+            <label for="fifty-percent">50%</label>
+          </div>
+          <div>
+            <input type="radio" name="tip" value="5%" id="custom-percent" />
+            <label for="custom-percent">Custom</label>
+          </div>
+        </div>
+
+        <div class="number-of-people">
+          <div class="label">Number of People</div>
+          <div class="field">
+            <input type="text" name="number-of-people" value="5" />
+          </div>
+        </div>
+      </div>
+
+      <div class="tip">
+        <div class="tip__amount">
+          <div class="tip__person">
+            <h2>Tip Amount</h2>
+            <h3>/ person</h3>
+          </div>
+          <div class="tip__count">$4.27</div>
+        </div>
+        <div class="tip__box">
+          <div class="tip__total">
+            <div class="tip__person">
+              <h2>Total</h2>
+              <h3>/ person</h3>
+            </div>
+            <div class="tip__count">$32.79</div>
+          </div>
+        </div>
+        <button type="reset">RESET</button>
+      </div>
+    </div>
+    <script src="js/hw.js"></script>
+  </body>
+</html>
