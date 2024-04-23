@@ -1,0 +1,11 @@
+const billAmount = document.querySelector('#bill-amount')
+const numberOfPeople = document.querySelector('#number-of-people')
+const tipAmount = document.querySelector('#tip__amount')
+const tipTotal = document.querySelector('#tip__total')
+const resetBtn = document.querySelector('#reset-btn')
+
+console.log('billAmount', billAmount)
+console.log('numberOfPeople', numberOfPeople)
+console.log('tipAmount', tipAmount)
+console.log('tipTotal', tipTotal)
+console.log('resetBtn', resetBtn)
