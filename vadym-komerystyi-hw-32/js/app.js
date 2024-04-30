@@ -3,73 +3,72 @@ const valueYears = document.querySelector('#value-years')
 const valueMonths = document.querySelector('#value-months')
 const valueDays = document.querySelector('#value-days')
 
-function handleForm(event) {
-  event.preventDefault()
-  const fields = document.querySelectorAll('input')
-  const values = {}
+function validationForm(form) {
+  let result = true
 
-  fields.forEach((field) => {
-    const { name, value } = field
-    values[name] = value
+  function removeError(input) {
+    const parent = input.parentNode
+    const spanErrors = document.querySelectorAll('.error')
+    if (parent.classList.contains('error')) {
+      parent.classList.remove('error')
+    }
+    spanErrors.forEach((spanError) => {
+      if (spanError.parentNode === parent) {
+        spanError.remove()
+      }
+    })
+  }
+
+  function createError(input, text) {
+    const parent = input.parentNode
+    const spanError = document.createElement('span')
+    spanError.classList.add('error')
+    spanError.textContent = text
+    parent.classList.add('error')
+    parent.appendChild(spanError)
+  }
+
+  const currentTime = new Date()
+  let currentFullYear = currentTime.getFullYear()
+  form.querySelectorAll('input').forEach((input) => {
+    removeError(input)
+    if (input.value == '') {
+      createError(input, `Invalid ${input.name}`)
+      result = false
+    }
+    if (input.name === 'day' && (input.value < 1 || input.value > 31)) {
+      if (!input.parentNode.classList.contains('error')) {
+        createError(input, `Invalid ${input.name}`)
+        result = false
+      }
+    }
+    if (input.name === 'month' && (input.value < 1 || input.value > 12)) {
+      if (!input.parentNode.classList.contains('error')) {
+        createError(input, `Invalid ${input.name}`)
+        result = false
+      }
+    }
+
+    if (input.name === 'year' && (input.value < 1900 || input.value > currentFullYear)) {
+      if (!input.parentNode.classList.contains('error')) {
+        createError(input, `Invalid ${input.name}`)
+        result = false
+      }
+    }
   })
 
-  getUserAge(values)
+  return result
 }
 
-function getUserAge(value) {
-  const inputMonth = parseInt(value.month)
-  const inputDay = parseInt(value.day)
-  const inputYear = parseInt(value.year)
-  const currentFullYear = new Date().getFullYear()
-
-  for (let key in value) {
-    const field = document.querySelector(`.form__item input[name='${key}']`)
-    const formItem = field.closest('.form__item')
-    const errorText = formItem.querySelector('.error-text')
-
-    if (value[key] === '') {
-      field.classList.add('error')
-      formItem.classList.add('error')
-      if (!errorText) {
-        const errorElement = document.createElement('span')
-        errorElement.classList.add('error-text')
-        errorElement.innerText = `Please enter ${key}`
-        formItem.appendChild(errorElement)
-      }
-    } else if (
-      (key === 'month' && (inputMonth < 1 || inputMonth > 12)) ||
-      (key === 'day' && (inputDay < 1 || inputDay > 31)) ||
-      (key === 'year' && inputYear > currentFullYear) ||
-      inputYear < 0
-    ) {
-      field.classList.add('error')
-      formItem.classList.add('error')
-      if (!errorText) {
-        const errorElement = document.createElement('span')
-        errorElement.classList.add('error-text')
-        errorElement.innerText = `Invalid ${key}`
-        formItem.appendChild(errorElement)
-      }
-    } else {
-      field.classList.remove('error')
-      formItem.classList.remove('error')
-      if (errorText) {
-        errorText.remove()
-      }
-      ageCount(value)
-    }
-  }
-}
-
-function ageCount(value) {
+function ageCount() {
   const currentTime = new Date()
   let currentDay = currentTime.getDate()
   let currentMonth = currentTime.getMonth() + 1
   let currentFullYear = currentTime.getFullYear()
 
-  const inputDay = parseInt(value.day)
-  const inputMonth = parseInt(value.month)
-  const inputYear = parseInt(value.year)
+  const inputDay = parseInt(document.querySelector('#day').value)
+  const inputMonth = parseInt(document.querySelector('#month').value)
+  const inputYear = parseInt(document.querySelector('#year').value)
 
   let days = currentDay - inputDay
   let months = currentMonth - inputMonth
@@ -90,4 +89,9 @@ function ageCount(value) {
   valueDays.innerText = days
 }
 
-form.addEventListener('submit', handleForm)
+form.addEventListener('submit', function (event) {
+  event.preventDefault()
+  if (validationForm(this)) {
+    ageCount()
+  }
+})
