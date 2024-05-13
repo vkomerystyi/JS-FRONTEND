@@ -11,18 +11,34 @@
 
 const taskInput = document.querySelector('#task')
 const taskBtn = document.querySelector('#task-btn')
+const listItem = document.querySelector('#list-item')
+
 let dataLocal = JSON.parse(localStorage.getItem('userTasks')) ?? []
 taskBtn.addEventListener('click', () => {
-  let taskInputValue = taskInput.value
+  let taskText = taskInput.value
 
-  if (taskInputValue !== '') {
+  if (taskText !== '') {
     let data = {
-      task: taskInputValue,
+      task: taskText,
     }
     dataLocal.push(data)
 
     localStorage.setItem('userTasks', JSON.stringify(dataLocal))
   }
-
+  showTasks(taskText)
   taskInput.value = ''
+  taskInput.focus()
 })
+// функция показа задачи что добавили
+
+function showTasks(tasks) {
+  const taskHTML = `            
+    <div class="text">
+      ${tasks}
+    </div>
+    <div class="box-control">
+      <button class="edit-input">Редагувати</button> 
+      <button class="delete-input">Видалити</button>
+    </div>`
+  listItem.insertAdjacentHTML('beforeend', taskHTML)
+}
