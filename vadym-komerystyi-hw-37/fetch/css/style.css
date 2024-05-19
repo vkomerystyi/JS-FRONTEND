@@ -77,6 +77,9 @@ body {
   box-shadow: 0 0 40px 0 var(--neon-green);
   cursor: pointer;
 }
+.shape:active {
+  background-color: rgba(84, 255, 169, 0.8);
+}
 
 @media (max-width: 540px) {
   .wrapper {
