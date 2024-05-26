@@ -15,7 +15,7 @@ async function getAllPosts() {
     numberID.textContent = advices.id
     text.textContent = advices.advice
   } catch (error) {
-    console.log('error', error)
+    console.log(error)
     text.textContent = 'Failed to fetch advice. Please try again later.'
   }
 }
